@@ -2,18 +2,19 @@ syntax = "proto3";
 
 option go_package = "github.com/Njunwa1/konekshen-proto/golang/matcher";
 import "google/api/annotations.proto";
+import "likes/likes.proto";
 
-message User {
-  string name = 1;
-  string dob = 2;
-  string sex = 3;
-  string lookingFor = 4;
-  repeated string interest = 5;
-  string location = 6;
-  repeated string profileImages = 7;
-  string email = 8;
-  string phoneNumber = 9;
-}
+//message User {
+//  string name = 1;
+//  string dob = 2;
+//  string sex = 3;
+//  string lookingFor = 4;
+//  repeated string interest = 5;
+//  string location = 6;
+//  repeated string profileImages = 7;
+//  string email = 8;
+//  string phoneNumber = 9;
+//}
 
 message CreateMatchRequest {
   repeated string user = 1;
