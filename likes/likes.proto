@@ -44,8 +44,7 @@ service Likes {
 
   rpc GetLikes(GetLikesRequest) returns (GetLikesResponse){
     option (google.api.http) = {
-      post: "/api/v1/likes"
-      body: "*"
+      get: "/api/v1/likes"
     };
   }
 
