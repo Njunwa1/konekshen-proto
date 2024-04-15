@@ -2,7 +2,7 @@
 // versions:
 // - protoc-gen-go-grpc v1.3.0
 // - protoc             v4.25.3
-// source: matcher/matcher.proto
+// source: matches/matches.proto
 
 package matcher
 
@@ -142,5 +142,5 @@ var Matcher_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "matcher/matcher.proto",
+	Metadata: "matches/matches.proto",
 }
