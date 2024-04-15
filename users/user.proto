@@ -57,7 +57,8 @@ message RecommendUsersRequest {
   string userId = 1;
 }
 
-message RecommendedUser {
+
+message RecommendUsersResponse {
   string id = 1;
   string name = 2;
   string dob = 3;
@@ -68,10 +69,6 @@ message RecommendedUser {
   repeated string interests = 8;
   string bio = 9;
   string sex = 10;
-}
-
-message RecommendUsersResponse {
-  repeated RecommendedUser recommendedUsers = 1;
 }
 
 
