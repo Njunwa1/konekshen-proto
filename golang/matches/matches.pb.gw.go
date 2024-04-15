@@ -6,7 +6,7 @@ Package matches is a reverse proxy.
 
 It translates gRPC into RESTful JSON APIs.
 */
-package matcher
+package matches
 
 import (
 	"context"

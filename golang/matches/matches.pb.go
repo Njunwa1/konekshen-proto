@@ -4,7 +4,7 @@
 // 	protoc        v4.25.3
 // source: matches/matches.proto
 
-package matcher
+package matches
 
 import (
 	_ "google.golang.org/genproto/googleapis/api/annotations"
@@ -40,7 +40,7 @@ type MatchedUser struct {
 func (x *MatchedUser) Reset() {
 	*x = MatchedUser{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_matcher_matcher_proto_msgTypes[0]
+		mi := &file_matches_matches_proto_msgTypes[0]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -53,7 +53,7 @@ func (x *MatchedUser) String() string {
 func (*MatchedUser) ProtoMessage() {}
 
 func (x *MatchedUser) ProtoReflect() protoreflect.Message {
-	mi := &file_matcher_matcher_proto_msgTypes[0]
+	mi := &file_matches_matches_proto_msgTypes[0]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -66,7 +66,7 @@ func (x *MatchedUser) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MatchedUser.ProtoReflect.Descriptor instead.
 func (*MatchedUser) Descriptor() ([]byte, []int) {
-	return file_matcher_matcher_proto_rawDescGZIP(), []int{0}
+	return file_matches_matches_proto_rawDescGZIP(), []int{0}
 }
 
 func (x *MatchedUser) GetName() string {
@@ -143,7 +143,7 @@ type CreateMatchRequest struct {
 func (x *CreateMatchRequest) Reset() {
 	*x = CreateMatchRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_matcher_matcher_proto_msgTypes[1]
+		mi := &file_matches_matches_proto_msgTypes[1]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -156,7 +156,7 @@ func (x *CreateMatchRequest) String() string {
 func (*CreateMatchRequest) ProtoMessage() {}
 
 func (x *CreateMatchRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_matcher_matcher_proto_msgTypes[1]
+	mi := &file_matches_matches_proto_msgTypes[1]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -169,7 +169,7 @@ func (x *CreateMatchRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateMatchRequest.ProtoReflect.Descriptor instead.
 func (*CreateMatchRequest) Descriptor() ([]byte, []int) {
-	return file_matcher_matcher_proto_rawDescGZIP(), []int{1}
+	return file_matches_matches_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *CreateMatchRequest) GetUser() []string {
@@ -191,7 +191,7 @@ type CreateMatchResponse struct {
 func (x *CreateMatchResponse) Reset() {
 	*x = CreateMatchResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_matcher_matcher_proto_msgTypes[2]
+		mi := &file_matches_matches_proto_msgTypes[2]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -204,7 +204,7 @@ func (x *CreateMatchResponse) String() string {
 func (*CreateMatchResponse) ProtoMessage() {}
 
 func (x *CreateMatchResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_matcher_matcher_proto_msgTypes[2]
+	mi := &file_matches_matches_proto_msgTypes[2]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -217,7 +217,7 @@ func (x *CreateMatchResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateMatchResponse.ProtoReflect.Descriptor instead.
 func (*CreateMatchResponse) Descriptor() ([]byte, []int) {
-	return file_matcher_matcher_proto_rawDescGZIP(), []int{2}
+	return file_matches_matches_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *CreateMatchResponse) GetId() string {
@@ -245,7 +245,7 @@ type GetMatchesRequest struct {
 func (x *GetMatchesRequest) Reset() {
 	*x = GetMatchesRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_matcher_matcher_proto_msgTypes[3]
+		mi := &file_matches_matches_proto_msgTypes[3]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -258,7 +258,7 @@ func (x *GetMatchesRequest) String() string {
 func (*GetMatchesRequest) ProtoMessage() {}
 
 func (x *GetMatchesRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_matcher_matcher_proto_msgTypes[3]
+	mi := &file_matches_matches_proto_msgTypes[3]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -271,7 +271,7 @@ func (x *GetMatchesRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetMatchesRequest.ProtoReflect.Descriptor instead.
 func (*GetMatchesRequest) Descriptor() ([]byte, []int) {
-	return file_matcher_matcher_proto_rawDescGZIP(), []int{3}
+	return file_matches_matches_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *GetMatchesRequest) GetUserId() string {
@@ -292,7 +292,7 @@ type GetMatchesResponse struct {
 func (x *GetMatchesResponse) Reset() {
 	*x = GetMatchesResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_matcher_matcher_proto_msgTypes[4]
+		mi := &file_matches_matches_proto_msgTypes[4]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -305,7 +305,7 @@ func (x *GetMatchesResponse) String() string {
 func (*GetMatchesResponse) ProtoMessage() {}
 
 func (x *GetMatchesResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_matcher_matcher_proto_msgTypes[4]
+	mi := &file_matches_matches_proto_msgTypes[4]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -318,7 +318,7 @@ func (x *GetMatchesResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetMatchesResponse.ProtoReflect.Descriptor instead.
 func (*GetMatchesResponse) Descriptor() ([]byte, []int) {
-	return file_matcher_matcher_proto_rawDescGZIP(), []int{4}
+	return file_matches_matches_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *GetMatchesResponse) GetUsers() []*MatchedUser {
@@ -328,11 +328,11 @@ func (x *GetMatchesResponse) GetUsers() []*MatchedUser {
 	return nil
 }
 
-var File_matcher_matcher_proto protoreflect.FileDescriptor
+var File_matches_matches_proto protoreflect.FileDescriptor
 
-var file_matcher_matcher_proto_rawDesc = []byte{
-	0x0a, 0x15, 0x6d, 0x61, 0x74, 0x63, 0x68, 0x65, 0x72, 0x2f, 0x6d, 0x61, 0x74, 0x63, 0x68, 0x65,
-	0x72, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x1a, 0x1c, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x2f,
+var file_matches_matches_proto_rawDesc = []byte{
+	0x0a, 0x15, 0x6d, 0x61, 0x74, 0x63, 0x68, 0x65, 0x73, 0x2f, 0x6d, 0x61, 0x74, 0x63, 0x68, 0x65,
+	0x73, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x1a, 0x1c, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x2f,
 	0x61, 0x70, 0x69, 0x2f, 0x61, 0x6e, 0x6e, 0x6f, 0x74, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x73, 0x2e,
 	0x70, 0x72, 0x6f, 0x74, 0x6f, 0x22, 0xfb, 0x01, 0x0a, 0x0b, 0x4d, 0x61, 0x74, 0x63, 0x68, 0x65,
 	0x64, 0x55, 0x73, 0x65, 0x72, 0x12, 0x12, 0x0a, 0x04, 0x6e, 0x61, 0x6d, 0x65, 0x18, 0x01, 0x20,
@@ -377,30 +377,30 @@ var file_matcher_matcher_proto_rawDesc = []byte{
 	0x65, 0x73, 0x42, 0x33, 0x5a, 0x31, 0x67, 0x69, 0x74, 0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f, 0x6d,
 	0x2f, 0x4e, 0x6a, 0x75, 0x6e, 0x77, 0x61, 0x31, 0x2f, 0x6b, 0x6f, 0x6e, 0x65, 0x6b, 0x73, 0x68,
 	0x65, 0x6e, 0x2d, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2f, 0x67, 0x6f, 0x6c, 0x61, 0x6e, 0x67, 0x2f,
-	0x6d, 0x61, 0x74, 0x63, 0x68, 0x65, 0x72, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x6d, 0x61, 0x74, 0x63, 0x68, 0x65, 0x73, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
-	file_matcher_matcher_proto_rawDescOnce sync.Once
-	file_matcher_matcher_proto_rawDescData = file_matcher_matcher_proto_rawDesc
+	file_matches_matches_proto_rawDescOnce sync.Once
+	file_matches_matches_proto_rawDescData = file_matches_matches_proto_rawDesc
 )
 
-func file_matcher_matcher_proto_rawDescGZIP() []byte {
-	file_matcher_matcher_proto_rawDescOnce.Do(func() {
-		file_matcher_matcher_proto_rawDescData = protoimpl.X.CompressGZIP(file_matcher_matcher_proto_rawDescData)
+func file_matches_matches_proto_rawDescGZIP() []byte {
+	file_matches_matches_proto_rawDescOnce.Do(func() {
+		file_matches_matches_proto_rawDescData = protoimpl.X.CompressGZIP(file_matches_matches_proto_rawDescData)
 	})
-	return file_matcher_matcher_proto_rawDescData
+	return file_matches_matches_proto_rawDescData
 }
 
-var file_matcher_matcher_proto_msgTypes = make([]protoimpl.MessageInfo, 5)
-var file_matcher_matcher_proto_goTypes = []interface{}{
+var file_matches_matches_proto_msgTypes = make([]protoimpl.MessageInfo, 5)
+var file_matches_matches_proto_goTypes = []interface{}{
 	(*MatchedUser)(nil),         // 0: MatchedUser
 	(*CreateMatchRequest)(nil),  // 1: CreateMatchRequest
 	(*CreateMatchResponse)(nil), // 2: CreateMatchResponse
 	(*GetMatchesRequest)(nil),   // 3: GetMatchesRequest
 	(*GetMatchesResponse)(nil),  // 4: GetMatchesResponse
 }
-var file_matcher_matcher_proto_depIdxs = []int32{
+var file_matches_matches_proto_depIdxs = []int32{
 	0, // 0: GetMatchesResponse.users:type_name -> MatchedUser
 	1, // 1: Matcher.CreateMatch:input_type -> CreateMatchRequest
 	3, // 2: Matcher.GetMatches:input_type -> GetMatchesRequest
@@ -413,13 +413,13 @@ var file_matcher_matcher_proto_depIdxs = []int32{
 	0, // [0:1] is the sub-list for field type_name
 }
 
-func init() { file_matcher_matcher_proto_init() }
-func file_matcher_matcher_proto_init() {
-	if File_matcher_matcher_proto != nil {
+func init() { file_matches_matches_proto_init() }
+func file_matches_matches_proto_init() {
+	if File_matches_matches_proto != nil {
 		return
 	}
 	if !protoimpl.UnsafeEnabled {
-		file_matcher_matcher_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
+		file_matches_matches_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*MatchedUser); i {
 			case 0:
 				return &v.state
@@ -431,7 +431,7 @@ func file_matcher_matcher_proto_init() {
 				return nil
 			}
 		}
-		file_matcher_matcher_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
+		file_matches_matches_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*CreateMatchRequest); i {
 			case 0:
 				return &v.state
@@ -443,7 +443,7 @@ func file_matcher_matcher_proto_init() {
 				return nil
 			}
 		}
-		file_matcher_matcher_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
+		file_matches_matches_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*CreateMatchResponse); i {
 			case 0:
 				return &v.state
@@ -455,7 +455,7 @@ func file_matcher_matcher_proto_init() {
 				return nil
 			}
 		}
-		file_matcher_matcher_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
+		file_matches_matches_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*GetMatchesRequest); i {
 			case 0:
 				return &v.state
@@ -467,7 +467,7 @@ func file_matcher_matcher_proto_init() {
 				return nil
 			}
 		}
-		file_matcher_matcher_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
+		file_matches_matches_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*GetMatchesResponse); i {
 			case 0:
 				return &v.state
@@ -484,18 +484,18 @@ func file_matcher_matcher_proto_init() {
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
-			RawDescriptor: file_matcher_matcher_proto_rawDesc,
+			RawDescriptor: file_matches_matches_proto_rawDesc,
 			NumEnums:      0,
 			NumMessages:   5,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
-		GoTypes:           file_matcher_matcher_proto_goTypes,
-		DependencyIndexes: file_matcher_matcher_proto_depIdxs,
-		MessageInfos:      file_matcher_matcher_proto_msgTypes,
+		GoTypes:           file_matches_matches_proto_goTypes,
+		DependencyIndexes: file_matches_matches_proto_depIdxs,
+		MessageInfos:      file_matches_matches_proto_msgTypes,
 	}.Build()
-	File_matcher_matcher_proto = out.File
-	file_matcher_matcher_proto_rawDesc = nil
-	file_matcher_matcher_proto_goTypes = nil
-	file_matcher_matcher_proto_depIdxs = nil
+	File_matches_matches_proto = out.File
+	file_matches_matches_proto_rawDesc = nil
+	file_matches_matches_proto_goTypes = nil
+	file_matches_matches_proto_depIdxs = nil
 }

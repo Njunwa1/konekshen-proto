@@ -4,7 +4,7 @@
 // - protoc             v4.25.3
 // source: matches/matches.proto
 
-package matcher
+package matches
 
 import (
 	context "context"
