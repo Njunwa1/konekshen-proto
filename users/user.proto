@@ -9,12 +9,12 @@ message Location {
 }
 
 message RegisterRequest {
-  int32 telegramId = 1;
+  int64 telegramId = 1;
   string name = 2;
   string dob = 3;
   string sex = 4;
   string lookingFor = 5;
-  repeated string interest = 6;
+  repeated string interests = 6;
   Location location = 7;
   repeated string profileImages = 8;
   string email = 9;
@@ -23,7 +23,9 @@ message RegisterRequest {
   int32 discoveryDistance = 12;
   string discoveryGender = 13;
   repeated int32 discoveryAge = 14;
+  string bio = 15;
 }
+
 
 message RegisterResponse {
   string id = 1;
@@ -32,7 +34,7 @@ message RegisterResponse {
   Location location = 4;
   repeated string profileImages = 5;
   string lookingFor = 6;
-  int32 telegramId = 7;
+  int64 telegramId = 7;
 }
 
 message LoginRequest {
@@ -51,8 +53,35 @@ message VerifyTokenResponse{
   string accessToken = 1;
 }
 
+message RecommendUsersRequest {
+  string userId = 1;
+}
+
+message RecommendedUser {
+  string id = 1;
+  string name = 2;
+  string dob = 3;
+  Location location = 4;
+  repeated string profileImages = 5;
+  string lookingFor = 6;
+  int32 telegramId = 7;
+  repeated string interests = 8;
+  string bio = 9;
+  string sex = 10;
+}
+
+message RecommendUsersResponse {
+  repeated RecommendedUser recommendedUsers = 1;
+}
+
 
 service User {
+  rpc GetRecommendedUsers(RecommendUsersRequest) returns (RecommendUsersResponse){
+    option (google.api.http) = {
+      get: "/api/v1/users/recommend"
+    };
+  }
+
   rpc Register(RegisterRequest) returns (RegisterResponse){
     option (google.api.http) = {
       post: "/api/v1/users/register"
