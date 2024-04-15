@@ -19,15 +19,17 @@ import (
 const _ = grpc.SupportPackageIsVersion7
 
 const (
-	User_Register_FullMethodName    = "/User/Register"
-	User_Login_FullMethodName       = "/User/Login"
-	User_VerifyToken_FullMethodName = "/User/VerifyToken"
+	User_GetRecommendedUsers_FullMethodName = "/User/GetRecommendedUsers"
+	User_Register_FullMethodName            = "/User/Register"
+	User_Login_FullMethodName               = "/User/Login"
+	User_VerifyToken_FullMethodName         = "/User/VerifyToken"
 )
 
 // UserClient is the client API for User service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type UserClient interface {
+	GetRecommendedUsers(ctx context.Context, in *RecommendUsersRequest, opts ...grpc.CallOption) (*RecommendUsersResponse, error)
 	Register(ctx context.Context, in *RegisterRequest, opts ...grpc.CallOption) (*RegisterResponse, error)
 	Login(ctx context.Context, in *LoginRequest, opts ...grpc.CallOption) (*LoginResponse, error)
 	VerifyToken(ctx context.Context, in *VerifyTokenRequest, opts ...grpc.CallOption) (*VerifyTokenResponse, error)
@@ -39,6 +41,15 @@ type userClient struct {
 
 func NewUserClient(cc grpc.ClientConnInterface) UserClient {
 	return &userClient{cc}
+}
+
+func (c *userClient) GetRecommendedUsers(ctx context.Context, in *RecommendUsersRequest, opts ...grpc.CallOption) (*RecommendUsersResponse, error) {
+	out := new(RecommendUsersResponse)
+	err := c.cc.Invoke(ctx, User_GetRecommendedUsers_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
 }
 
 func (c *userClient) Register(ctx context.Context, in *RegisterRequest, opts ...grpc.CallOption) (*RegisterResponse, error) {
@@ -72,6 +83,7 @@ func (c *userClient) VerifyToken(ctx context.Context, in *VerifyTokenRequest, op
 // All implementations must embed UnimplementedUserServer
 // for forward compatibility
 type UserServer interface {
+	GetRecommendedUsers(context.Context, *RecommendUsersRequest) (*RecommendUsersResponse, error)
 	Register(context.Context, *RegisterRequest) (*RegisterResponse, error)
 	Login(context.Context, *LoginRequest) (*LoginResponse, error)
 	VerifyToken(context.Context, *VerifyTokenRequest) (*VerifyTokenResponse, error)
@@ -82,6 +94,9 @@ type UserServer interface {
 type UnimplementedUserServer struct {
 }
 
+func (UnimplementedUserServer) GetRecommendedUsers(context.Context, *RecommendUsersRequest) (*RecommendUsersResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetRecommendedUsers not implemented")
+}
 func (UnimplementedUserServer) Register(context.Context, *RegisterRequest) (*RegisterResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Register not implemented")
 }
@@ -102,6 +117,24 @@ type UnsafeUserServer interface {
 
 func RegisterUserServer(s grpc.ServiceRegistrar, srv UserServer) {
 	s.RegisterService(&User_ServiceDesc, srv)
+}
+
+func _User_GetRecommendedUsers_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RecommendUsersRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(UserServer).GetRecommendedUsers(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: User_GetRecommendedUsers_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UserServer).GetRecommendedUsers(ctx, req.(*RecommendUsersRequest))
+	}
+	return interceptor(ctx, in, info, handler)
 }
 
 func _User_Register_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
@@ -165,6 +198,10 @@ var User_ServiceDesc = grpc.ServiceDesc{
 	ServiceName: "User",
 	HandlerType: (*UserServer)(nil),
 	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "GetRecommendedUsers",
+			Handler:    _User_GetRecommendedUsers_Handler,
+		},
 		{
 			MethodName: "Register",
 			Handler:    _User_Register_Handler,
