@@ -1,4 +1,4 @@
-module github.com/Njunwa1/konekshen-proto/konekshen-proto/users
+module github.com/Njunwa1/konekshen-proto/users
 
 go 1.22.0
 

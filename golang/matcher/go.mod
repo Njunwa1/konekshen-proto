@@ -1,4 +1,4 @@
-module github.com/Njunwa1/konekshen-proto/konekshen-proto/matches
+module github.com/Njunwa1/konekshen-proto/matches
 
 go 1.22.0
 

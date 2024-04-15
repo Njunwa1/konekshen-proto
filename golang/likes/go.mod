@@ -1,4 +1,4 @@
-module github.com/Njunwa1/konekshen-proto/konekshen-proto/likes
+module github.com/Njunwa1/konekshen-proto/likes
 
 go 1.22.0
 
