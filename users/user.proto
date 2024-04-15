@@ -22,7 +22,7 @@ message RegisterRequest {
   string password = 11;
   int32 discoveryDistance = 12;
   string discoveryGender = 13;
-  int32 discoveryAge = 14;
+  repeated int32 discoveryAge = 14;
 }
 
 message RegisterResponse {
