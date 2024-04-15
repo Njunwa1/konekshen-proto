@@ -29,7 +29,7 @@ const (
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type UserClient interface {
-	GetRecommendedUsers(ctx context.Context, in *RecommendUsersRequest, opts ...grpc.CallOption) (*RecommendUsersResponse, error)
+	GetRecommendedUsers(ctx context.Context, in *RecommendUsersRequest, opts ...grpc.CallOption) (*RecommendedUsersResponse, error)
 	Register(ctx context.Context, in *RegisterRequest, opts ...grpc.CallOption) (*RegisterResponse, error)
 	Login(ctx context.Context, in *LoginRequest, opts ...grpc.CallOption) (*LoginResponse, error)
 	VerifyToken(ctx context.Context, in *VerifyTokenRequest, opts ...grpc.CallOption) (*VerifyTokenResponse, error)
@@ -43,8 +43,8 @@ func NewUserClient(cc grpc.ClientConnInterface) UserClient {
 	return &userClient{cc}
 }
 
-func (c *userClient) GetRecommendedUsers(ctx context.Context, in *RecommendUsersRequest, opts ...grpc.CallOption) (*RecommendUsersResponse, error) {
-	out := new(RecommendUsersResponse)
+func (c *userClient) GetRecommendedUsers(ctx context.Context, in *RecommendUsersRequest, opts ...grpc.CallOption) (*RecommendedUsersResponse, error) {
+	out := new(RecommendedUsersResponse)
 	err := c.cc.Invoke(ctx, User_GetRecommendedUsers_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -83,7 +83,7 @@ func (c *userClient) VerifyToken(ctx context.Context, in *VerifyTokenRequest, op
 // All implementations must embed UnimplementedUserServer
 // for forward compatibility
 type UserServer interface {
-	GetRecommendedUsers(context.Context, *RecommendUsersRequest) (*RecommendUsersResponse, error)
+	GetRecommendedUsers(context.Context, *RecommendUsersRequest) (*RecommendedUsersResponse, error)
 	Register(context.Context, *RegisterRequest) (*RegisterResponse, error)
 	Login(context.Context, *LoginRequest) (*LoginResponse, error)
 	VerifyToken(context.Context, *VerifyTokenRequest) (*VerifyTokenResponse, error)
@@ -94,7 +94,7 @@ type UserServer interface {
 type UnimplementedUserServer struct {
 }
 
-func (UnimplementedUserServer) GetRecommendedUsers(context.Context, *RecommendUsersRequest) (*RecommendUsersResponse, error) {
+func (UnimplementedUserServer) GetRecommendedUsers(context.Context, *RecommendUsersRequest) (*RecommendedUsersResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetRecommendedUsers not implemented")
 }
 func (UnimplementedUserServer) Register(context.Context, *RegisterRequest) (*RegisterResponse, error) {
