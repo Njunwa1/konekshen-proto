@@ -35,13 +35,13 @@ message GetMatchesResponse{
 service Matcher {
   rpc CreateMatch(CreateMatchRequest) returns (CreateMatchResponse) {
     option (google.api.http) = {
-      post: "/matches"
+      post: "/api/v1/matches"
       body: "*"
     };
   }
   rpc GetMatches(GetMatchesRequest) returns (GetMatchesResponse) {
     option (google.api.http) = {
-      get: "/matches"
+      get: "/api/v1/matches"
     };
   }
 }
