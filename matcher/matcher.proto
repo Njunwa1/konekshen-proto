@@ -1,0 +1,47 @@
+syntax = "proto3";
+
+option go_package = "github.com/Njunwa1/konekshen-proto/golang/matcher";
+import "google/api/annotations.proto";
+
+message User {
+  string name = 1;
+  string dob = 2;
+  string sex = 3;
+  string lookingFor = 4;
+  repeated string interest = 5;
+  string location = 6;
+  repeated string profileImages = 7;
+  string email = 8;
+  string phoneNumber = 9;
+}
+
+message CreateMatchRequest {
+  repeated string user = 1;
+}
+
+message CreateMatchResponse {
+  string id = 1;
+  repeated string user = 2;
+}
+
+message GetMatchesRequest {
+  string user_id = 1;
+}
+
+message GetMatchesResponse{
+  repeated User users = 1;
+}
+
+service Matcher {
+  rpc CreateMatch(CreateMatchRequest) returns (CreateMatchResponse) {
+    option (google.api.http) = {
+      post: "/matches"
+      body: "*"
+    };
+  }
+  rpc GetMatches(GetMatchesRequest) returns (GetMatchesResponse) {
+    option (google.api.http) = {
+      get: "/matches"
+    };
+  }
+}
