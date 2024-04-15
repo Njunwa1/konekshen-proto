@@ -3,7 +3,7 @@ syntax = "proto3";
 option go_package = "github.com/Njunwa1/konekshen-proto/golang/likes";
 import "google/api/annotations.proto";
 
-message User {
+message LikedUser {
   string name = 1;
   string dob = 2;
   string sex = 3;
@@ -30,7 +30,7 @@ message GetLikesRequest {
 }
 
 message GetLikesResponse {
-  repeated User users = 1;
+  repeated LikedUser users = 1;
 }
 
 
