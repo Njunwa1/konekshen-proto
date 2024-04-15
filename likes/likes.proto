@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+option go_package = "github.com/Njunwa1/konekshen-proto/golang/likes";
+import "google/api/annotations.proto";
+
+
+message LikesRequest {
+  string sender_id = 1;
+  string receiver_id = 2;
+}
+
+message LikesResponse {
+  string sender_id = 1;
+  string receiver_id = 2;
+}
+
+
+
+service Likes {
+  rpc RegisterLikes(LikesRequest) returns (LikesResponse){
+    option (google.api.http) = {
+      post: "/api/v1/likes/register"
+      body: "*"
+    };
+  }
+
+}
