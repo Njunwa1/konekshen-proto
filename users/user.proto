@@ -3,25 +3,36 @@ syntax = "proto3";
 option go_package = "github.com/Njunwa1/konekshen-proto/golang/users";
 import "google/api/annotations.proto";
 
+message Location {
+  float longitude = 1;
+  float latitude = 2;
+}
+
 message RegisterRequest {
-  string name = 1;
-  string dob = 2;
-  string sex = 3;
-  string lookingFor = 4;
-  repeated string interest = 5;
-  string location = 6;
-  repeated string profileImages = 7;
-  string email = 8;
-  string phoneNumber = 9;
-  string password = 10;
-  string discoveryDistance = 11;
-  string discoveryGender = 12;
-  string discoveryAge = 13;
+  int32 telegramId = 1;
+  string name = 2;
+  string dob = 3;
+  string sex = 4;
+  string lookingFor = 5;
+  repeated string interest = 6;
+  Location location = 7;
+  repeated string profileImages = 8;
+  string email = 9;
+  string phoneNumber = 10;
+  string password = 11;
+  int32 discoveryDistance = 12;
+  string discoveryGender = 13;
+  int32 discoveryAge = 14;
 }
 
 message RegisterResponse {
   string id = 1;
   string name = 2;
+  string dob = 3;
+  Location location = 4;
+  repeated string profileImages = 5;
+  string lookingFor = 6;
+  int32 telegramId = 7;
 }
 
 message LoginRequest {
