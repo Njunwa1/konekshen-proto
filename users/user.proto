@@ -57,23 +57,26 @@ message RecommendUsersRequest {
   string userId = 1;
 }
 
-
-message RecommendUsersResponse {
+message RecommendedUser {
   string id = 1;
   string name = 2;
   string dob = 3;
   Location location = 4;
   repeated string profileImages = 5;
   string lookingFor = 6;
-  int32 telegramId = 7;
+  int64 telegramId = 7;
   repeated string interests = 8;
   string bio = 9;
   string sex = 10;
 }
 
+message RecommendedUsersResponse {
+  repeated RecommendedUser users = 1;
+}
+
 
 service User {
-  rpc GetRecommendedUsers(RecommendUsersRequest) returns (RecommendUsersResponse){
+  rpc GetRecommendedUsers(RecommendUsersRequest) returns (RecommendedUsersResponse){
     option (google.api.http) = {
       get: "/api/v1/users/recommend"
     };
