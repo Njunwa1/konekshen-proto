@@ -3,21 +3,24 @@ syntax = "proto3";
 option go_package = "github.com/Njunwa1/konekshen-proto/golang/swipes";
 import "google/api/annotations.proto";
 
-message SwipedUser {
-  string name = 1;
-  string dob = 2;
-  string sex = 3;
-  string lookingFor = 4;
-  repeated string interest = 5;
-  string location = 6;
-  repeated string profileImages = 7;
-  string email = 8;
-  string phoneNumber = 9;
+message ReceivingUser {
+  string id = 1;
+  string name = 2;
+  string dob = 3;
+  string sex = 4;
+  string bio = 5;
+  string lookingFor = 6;
+  repeated string interests = 7;
+  string location = 8;
+  repeated string profileImages = 9;
+  string email = 10;
+  string phoneNumber = 11;
 }
 
 message LikesRequest {
   string sender_id = 1;
   string receiver_id = 2;
+  ReceivingUser receiver = 3;
 }
 
 message LikesResponse {
@@ -28,6 +31,7 @@ message LikesResponse {
 message DisLikesRequest {
   string sender_id = 1;
   string receiver_id = 2;
+  ReceivingUser receiver = 3;
 }
 
 message DisLikesResponse {
@@ -40,7 +44,7 @@ message GetLikesRequest {
 }
 
 message GetLikesResponse {
-  repeated SwipedUser users = 1;
+  repeated ReceivingUser users = 1;
 }
 
 
