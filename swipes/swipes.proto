@@ -3,7 +3,7 @@ syntax = "proto3";
 option go_package = "github.com/Njunwa1/konekshen-proto/golang/swipes";
 import "google/api/annotations.proto";
 
-message Location {
+message ReceivingUserLocation {
   float longitude = 1;
   float latitude = 2;
 }
@@ -16,7 +16,7 @@ message ReceivingUser {
   string bio = 5;
   string lookingFor = 6;
   repeated string interests = 7;
-  Location location = 8;
+  ReceivingUserLocation location = 8;
   repeated string profileImages = 9;
   string email = 10;
   string phoneNumber = 11;
