@@ -57,7 +57,7 @@ message ReceiveNotificationResponse {
   NotificationUser user = 5;
 }
 
-service Notification {
+service Notifications {
     rpc SendNotification (SendNotificationRequest) returns (SendNotificationResponse) {
         option (google.api.http) = {
             post: "/api/v1/notifications/send"

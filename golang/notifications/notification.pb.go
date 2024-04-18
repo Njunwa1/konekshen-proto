@@ -2,9 +2,9 @@
 // versions:
 // 	protoc-gen-go v1.33.0
 // 	protoc        v4.25.3
-// source: notification/notification.proto
+// source: notifications/notifications.proto
 
-package notification
+package notifications
 
 import (
 	_ "google.golang.org/genproto/googleapis/api/annotations"
