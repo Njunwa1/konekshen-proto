@@ -32,12 +32,14 @@ message MatchedUser {
 }
 
 message CreateMatchRequest {
-  repeated string user = 1;
+  MatchedUser user1 = 1;
+  MatchedUser user2 = 2;
 }
 
 message CreateMatchResponse {
   string id = 1;
-  repeated string user = 2;
+  MatchedUser user1 = 2;
+  MatchedUser user2 = 3;
 }
 
 message GetMatchesRequest {
