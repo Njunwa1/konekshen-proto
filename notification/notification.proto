@@ -1,0 +1,72 @@
+syntax = "proto3";
+
+option go_package = "github.com/Njunwa1/konekshen-proto/golang/notification";
+import "google/api/annotations.proto";
+
+message NotificationUserLocation {
+  float longitude = 1;
+  float latitude = 2;
+}
+
+message NotificationUserAddress {
+  string residential = 1;
+  string town = 2;
+  string state = 3;
+  string region = 4;
+  string country = 5;
+  string countryCode = 6;
+}
+
+message NotificationUser {
+  string id = 1;
+  string name = 2;
+  string dob = 3;
+  string sex = 4;
+  string bio = 5;
+  string lookingFor = 6;
+  repeated string interests = 7;
+  NotificationUserLocation location = 8;
+  repeated string profileImages = 9;
+  int64 telegramId = 10;
+  NotificationUserAddress address = 11;
+}
+
+message SendNotificationRequest {
+    string from = 1;
+    string to = 2;
+    string title = 3;
+    string body = 4;
+    NotificationUser user = 5;
+}
+
+message SendNotificationResponse {
+  string from = 1;
+  string to = 2;
+}
+
+message ReceiveNotificationRequest {
+    string to = 1;
+    string from = 2;
+}
+
+message ReceiveNotificationResponse {
+  string from = 1;
+  string to = 2;
+  string title = 3;
+  string body = 4;
+  NotificationUser user = 5;
+}
+
+service Notification {
+    rpc SendNotification (SendNotificationRequest) returns (SendNotificationResponse) {
+        option (google.api.http) = {
+            post: "/api/v1/notifications/send"
+            body: "*"
+        };
+    }
+    rpc ReceiveNotification (ReceiveNotificationRequest) returns (ReceiveNotificationResponse) {
+        option (google.api.http) = {
+            get: "/api/v1/notifications/receive"
+        };
+    }
+}
