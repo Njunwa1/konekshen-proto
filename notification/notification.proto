@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-option go_package = "github.com/Njunwa1/konekshen-proto/golang/notification";
+option go_package = "github.com/Njunwa1/konekshen-proto/golang/notifications";
 import "google/api/annotations.proto";
 
 message NotificationUserLocation {
