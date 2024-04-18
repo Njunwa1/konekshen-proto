@@ -3,16 +3,32 @@ syntax = "proto3";
 option go_package = "github.com/Njunwa1/konekshen-proto/golang/matches";
 import "google/api/annotations.proto";
 
+message MatchedUserLocation {
+  float longitude = 1;
+  float latitude = 2;
+}
+
+message MatchedUserAddress {
+  string residential = 1;
+  string town = 2;
+  string state = 3;
+  string region = 4;
+  string country = 5;
+  string countryCode = 6;
+}
+
 message MatchedUser {
-  string name = 1;
-  string dob = 2;
-  string sex = 3;
-  string lookingFor = 4;
-  repeated string interest = 5;
-  string location = 6;
-  repeated string profileImages = 7;
-  string email = 8;
-  string phoneNumber = 9;
+  string id = 1;
+  string name = 2;
+  string dob = 3;
+  string sex = 4;
+  string bio = 5;
+  string lookingFor = 6;
+  repeated string interests = 7;
+  MatchedUserLocation location = 8;
+  repeated string profileImages = 9;
+  int64 telegramId = 10;
+  MatchedUserAddress address = 11;
 }
 
 message CreateMatchRequest {

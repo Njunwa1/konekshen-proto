@@ -8,6 +8,15 @@ message Location {
   float latitude = 2;
 }
 
+message Address {
+  string residential = 1;
+  string town = 2;
+  string state = 3;
+  string region = 4;
+  string country = 5;
+  string countryCode = 6;
+}
+
 message RegisterRequest {
   int64 telegramId = 1;
   string name = 2;
@@ -24,6 +33,7 @@ message RegisterRequest {
   string discoveryGender = 13;
   repeated int32 discoveryAge = 14;
   string bio = 15;
+  Address address = 16;
 }
 
 
@@ -35,6 +45,8 @@ message RegisterResponse {
   repeated string profileImages = 5;
   string lookingFor = 6;
   int64 telegramId = 7;
+  string bio = 8;
+  Address address = 9;
 }
 
 message LoginRequest {
@@ -68,6 +80,7 @@ message RecommendedUser {
   repeated string interests = 8;
   string bio = 9;
   string sex = 10;
+  Address address = 11;
 }
 
 message RecommendedUsersResponse {
@@ -89,6 +102,7 @@ message GetTelegramUserResponse {
   repeated string interests = 8;
   string bio = 9;
   string sex = 10;
+  Address address = 11;
 }
 
 

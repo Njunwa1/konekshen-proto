@@ -8,6 +8,15 @@ message ReceivingUserLocation {
   float latitude = 2;
 }
 
+message ReceivingUserAddress {
+  string residential = 1;
+  string town = 2;
+  string state = 3;
+  string region = 4;
+  string country = 5;
+  string countryCode = 6;
+}
+
 message ReceivingUser {
   string id = 1;
   string name = 2;
@@ -18,9 +27,8 @@ message ReceivingUser {
   repeated string interests = 7;
   ReceivingUserLocation location = 8;
   repeated string profileImages = 9;
-  string email = 10;
-  string phoneNumber = 11;
-  int64 telegramId = 12;
+  int64 telegramId = 10;
+  ReceivingUserAddress address = 11;
 }
 
 message LikesRequest {
