@@ -28,7 +28,7 @@ const (
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type NotificationsClient interface {
 	SendNotification(ctx context.Context, in *SendNotificationRequest, opts ...grpc.CallOption) (*SendNotificationResponse, error)
-	ReceiveNotification(ctx context.Context, in *ReceiveNotificationRequest, opts ...grpc.CallOption) (*ReceiveNotificationResponse, error)
+	ReceiveNotification(ctx context.Context, in *ReceiveNotificationsRequest, opts ...grpc.CallOption) (*ReceiveNotificationsResponse, error)
 }
 
 type notificationsClient struct {
@@ -48,8 +48,8 @@ func (c *notificationsClient) SendNotification(ctx context.Context, in *SendNoti
 	return out, nil
 }
 
-func (c *notificationsClient) ReceiveNotification(ctx context.Context, in *ReceiveNotificationRequest, opts ...grpc.CallOption) (*ReceiveNotificationResponse, error) {
-	out := new(ReceiveNotificationResponse)
+func (c *notificationsClient) ReceiveNotification(ctx context.Context, in *ReceiveNotificationsRequest, opts ...grpc.CallOption) (*ReceiveNotificationsResponse, error) {
+	out := new(ReceiveNotificationsResponse)
 	err := c.cc.Invoke(ctx, Notifications_ReceiveNotification_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -62,7 +62,7 @@ func (c *notificationsClient) ReceiveNotification(ctx context.Context, in *Recei
 // for forward compatibility
 type NotificationsServer interface {
 	SendNotification(context.Context, *SendNotificationRequest) (*SendNotificationResponse, error)
-	ReceiveNotification(context.Context, *ReceiveNotificationRequest) (*ReceiveNotificationResponse, error)
+	ReceiveNotification(context.Context, *ReceiveNotificationsRequest) (*ReceiveNotificationsResponse, error)
 	mustEmbedUnimplementedNotificationsServer()
 }
 
@@ -73,7 +73,7 @@ type UnimplementedNotificationsServer struct {
 func (UnimplementedNotificationsServer) SendNotification(context.Context, *SendNotificationRequest) (*SendNotificationResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method SendNotification not implemented")
 }
-func (UnimplementedNotificationsServer) ReceiveNotification(context.Context, *ReceiveNotificationRequest) (*ReceiveNotificationResponse, error) {
+func (UnimplementedNotificationsServer) ReceiveNotification(context.Context, *ReceiveNotificationsRequest) (*ReceiveNotificationsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ReceiveNotification not implemented")
 }
 func (UnimplementedNotificationsServer) mustEmbedUnimplementedNotificationsServer() {}
@@ -108,7 +108,7 @@ func _Notifications_SendNotification_Handler(srv interface{}, ctx context.Contex
 }
 
 func _Notifications_ReceiveNotification_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ReceiveNotificationRequest)
+	in := new(ReceiveNotificationsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -120,7 +120,7 @@ func _Notifications_ReceiveNotification_Handler(srv interface{}, ctx context.Con
 		FullMethod: Notifications_ReceiveNotification_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NotificationsServer).ReceiveNotification(ctx, req.(*ReceiveNotificationRequest))
+		return srv.(NotificationsServer).ReceiveNotification(ctx, req.(*ReceiveNotificationsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
