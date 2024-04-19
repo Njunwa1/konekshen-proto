@@ -36,7 +36,8 @@ message SendNotificationRequest {
     string to = 2;
     string title = 3;
     string body = 4;
-    NotificationUser user = 5;
+    string type = 5;
+    NotificationUser user = 6;
 }
 
 message SendNotificationResponse {
@@ -44,17 +45,19 @@ message SendNotificationResponse {
   string to = 2;
 }
 
-message ReceiveNotificationRequest {
-    string to = 1;
-    string from = 2;
+message ReceiveNotificationsRequest {}
+
+message Notification {
+    string from = 1;
+    string to = 2;
+    string title = 3;
+    string body = 4;
+    string type = 5;
+    NotificationUser user = 6;
 }
 
-message ReceiveNotificationResponse {
-  string from = 1;
-  string to = 2;
-  string title = 3;
-  string body = 4;
-  NotificationUser user = 5;
+message ReceiveNotificationsResponse {
+  Notification notifications = 1;
 }
 
 service Notifications {
@@ -64,7 +67,7 @@ service Notifications {
             body: "*"
         };
     }
-    rpc ReceiveNotification (ReceiveNotificationRequest) returns (ReceiveNotificationResponse) {
+    rpc ReceiveNotification (ReceiveNotificationsRequest) returns (ReceiveNotificationsResponse) {
         option (google.api.http) = {
             get: "/api/v1/notifications/receive"
         };
