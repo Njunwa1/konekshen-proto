@@ -57,7 +57,7 @@ message Notification {
 }
 
 message ReceiveNotificationsResponse {
-  Notification notifications = 1;
+  repeated Notification notifications = 1;
 }
 
 service Notifications {
