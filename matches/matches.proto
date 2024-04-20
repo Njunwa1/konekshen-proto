@@ -9,12 +9,14 @@ message MatchedUserLocation {
 }
 
 message MatchedUserAddress {
-  string residential = 1;
-  string town = 2;
-  string state = 3;
-  string region = 4;
-  string country = 5;
-  string countryCode = 6;
+  string stateDistrict = 1;
+  string residential = 2;
+  string town = 3;
+  string state = 4;
+  string region = 5;
+  string country = 6;
+  string countryCode = 7;
+  string countryFlag = 8;
 }
 
 message MatchedUser {
