@@ -50,6 +50,7 @@ message RegisterResponse {
   int64 telegramId = 7;
   string bio = 8;
   Address address = 9;
+  string sex = 10;
 }
 
 message LoginRequest {
