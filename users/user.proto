@@ -142,5 +142,12 @@ service User {
       get: "/api/v1/users/{telegramId}"
     };
   }
+
+  rpc UpdateUserByTgId(RegisterRequest) returns (RegisterResponse){
+    option (google.api.http) = {
+      put: "/api/v1/users"
+      body: "*"
+    };
+  }
 }
 
