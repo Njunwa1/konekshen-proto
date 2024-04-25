@@ -95,6 +95,13 @@ message GetTelegramUserRequest {
   int64 telegramId = 1;
 }
 
+message DiscoverySettings {
+  int32 discoveryDistance = 1;
+  string discoveryGender = 2;
+  repeated int32 discoveryAge = 3;
+  bool discoveryGlobal = 4;
+}
+
 message GetTelegramUserResponse {
   string id = 1;
   string name = 2;
@@ -107,6 +114,8 @@ message GetTelegramUserResponse {
   string bio = 9;
   string sex = 10;
   Address address = 11;
+  string phoneNumber = 12;
+  DiscoverySettings discoverySettings = 13;
 }
 
 
