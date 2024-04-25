@@ -32,6 +32,7 @@ message MatchedUser {
   int64 telegramId = 10;
   MatchedUserAddress address = 11;
   string phoneNumber = 12;
+  string telegramUsername = 13;
 }
 
 message CreateMatchRequest {

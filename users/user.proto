@@ -37,6 +37,7 @@ message RegisterRequest {
   string bio = 15;
   Address address = 16;
   bool discoveryGlobal = 17;
+  string telegramUsername = 18;
 }
 
 
@@ -116,6 +117,7 @@ message GetTelegramUserResponse {
   Address address = 11;
   string phoneNumber = 12;
   DiscoverySettings discoverySettings = 13;
+  string telegramUsername = 14;
 }
 
 
