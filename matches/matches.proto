@@ -31,6 +31,7 @@ message MatchedUser {
   repeated string profileImages = 9;
   int64 telegramId = 10;
   MatchedUserAddress address = 11;
+  string phoneNumber = 12;
 }
 
 message CreateMatchRequest {
