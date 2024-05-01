@@ -86,6 +86,8 @@ message RecommendedUser {
   string bio = 9;
   string sex = 10;
   Address address = 11;
+  string phoneNumber = 12;
+  string telegramUsername = 13;
 }
 
 message RecommendedUsersResponse {
