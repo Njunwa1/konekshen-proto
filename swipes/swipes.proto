@@ -31,6 +31,8 @@ message ReceivingUser {
   repeated string profileImages = 9;
   int64 telegramId = 10;
   ReceivingUserAddress address = 11;
+  string phoneNumber = 12;
+  string telegramUsername = 13;
 }
 
 message LikesRequest {
