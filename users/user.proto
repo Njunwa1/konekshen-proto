@@ -124,7 +124,7 @@ message GetTelegramUserResponse {
 
 message UploadImageRequest {
   string file_name = 1;
-  bytes image_data = 2;
+  string base64_image_data = 2;
   string content_type = 3;
 }
 
@@ -181,7 +181,5 @@ service User {
       body: "*"
     };
   }
-
-
 }
 
