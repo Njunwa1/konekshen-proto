@@ -122,6 +122,18 @@ message GetTelegramUserResponse {
   string telegramUsername = 14;
 }
 
+message UploadImageRequest {
+  string file_name = 1;
+  bytes image_data = 2;
+  string content_type = 3;
+}
+
+message UploadImageResponse {
+  string image_url = 1;
+  bool success = 2;
+  string message = 3;
+}
+
 
 service User {
   rpc GetRecommendedUsers(RecommendUsersRequest) returns (RecommendedUsersResponse){
@@ -162,5 +174,14 @@ service User {
       body: "*"
     };
   }
+
+  rpc UploadUserImage(UploadImageRequest) returns (UploadImageResponse) {
+    option (google.api.http) = {
+      post: "/api/v1/users/upload-image"
+      body: "*"
+    };
+  }
+
+
 }
 

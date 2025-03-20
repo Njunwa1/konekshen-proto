@@ -25,6 +25,7 @@ const (
 	User_VerifyToken_FullMethodName         = "/User/VerifyToken"
 	User_GetUserByTelegramId_FullMethodName = "/User/GetUserByTelegramId"
 	User_UpdateUserByTgId_FullMethodName    = "/User/UpdateUserByTgId"
+	User_UploadUserImage_FullMethodName     = "/User/UploadUserImage"
 )
 
 // UserClient is the client API for User service.
@@ -37,6 +38,7 @@ type UserClient interface {
 	VerifyToken(ctx context.Context, in *VerifyTokenRequest, opts ...grpc.CallOption) (*VerifyTokenResponse, error)
 	GetUserByTelegramId(ctx context.Context, in *GetTelegramUserRequest, opts ...grpc.CallOption) (*GetTelegramUserResponse, error)
 	UpdateUserByTgId(ctx context.Context, in *RegisterRequest, opts ...grpc.CallOption) (*RegisterResponse, error)
+	UploadUserImage(ctx context.Context, in *UploadImageRequest, opts ...grpc.CallOption) (*UploadImageResponse, error)
 }
 
 type userClient struct {
@@ -101,6 +103,15 @@ func (c *userClient) UpdateUserByTgId(ctx context.Context, in *RegisterRequest, 
 	return out, nil
 }
 
+func (c *userClient) UploadUserImage(ctx context.Context, in *UploadImageRequest, opts ...grpc.CallOption) (*UploadImageResponse, error) {
+	out := new(UploadImageResponse)
+	err := c.cc.Invoke(ctx, User_UploadUserImage_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // UserServer is the server API for User service.
 // All implementations must embed UnimplementedUserServer
 // for forward compatibility
@@ -111,6 +122,7 @@ type UserServer interface {
 	VerifyToken(context.Context, *VerifyTokenRequest) (*VerifyTokenResponse, error)
 	GetUserByTelegramId(context.Context, *GetTelegramUserRequest) (*GetTelegramUserResponse, error)
 	UpdateUserByTgId(context.Context, *RegisterRequest) (*RegisterResponse, error)
+	UploadUserImage(context.Context, *UploadImageRequest) (*UploadImageResponse, error)
 	mustEmbedUnimplementedUserServer()
 }
 
@@ -135,6 +147,9 @@ func (UnimplementedUserServer) GetUserByTelegramId(context.Context, *GetTelegram
 }
 func (UnimplementedUserServer) UpdateUserByTgId(context.Context, *RegisterRequest) (*RegisterResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateUserByTgId not implemented")
+}
+func (UnimplementedUserServer) UploadUserImage(context.Context, *UploadImageRequest) (*UploadImageResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UploadUserImage not implemented")
 }
 func (UnimplementedUserServer) mustEmbedUnimplementedUserServer() {}
 
@@ -257,6 +272,24 @@ func _User_UpdateUserByTgId_Handler(srv interface{}, ctx context.Context, dec fu
 	return interceptor(ctx, in, info, handler)
 }
 
+func _User_UploadUserImage_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UploadImageRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(UserServer).UploadUserImage(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: User_UploadUserImage_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UserServer).UploadUserImage(ctx, req.(*UploadImageRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // User_ServiceDesc is the grpc.ServiceDesc for User service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -287,6 +320,10 @@ var User_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "UpdateUserByTgId",
 			Handler:    _User_UpdateUserByTgId_Handler,
+		},
+		{
+			MethodName: "UploadUserImage",
+			Handler:    _User_UploadUserImage_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
