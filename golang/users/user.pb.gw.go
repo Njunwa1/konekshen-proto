@@ -263,7 +263,7 @@ func RegisterUserHandlerServer(ctx context.Context, mux *runtime.ServeMux, serve
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/.User/GetRecommendedUsers", runtime.WithHTTPPathPattern("/api/v1/users/recommend"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/.User/GetRecommendedUsers", runtime.WithHTTPPathPattern("/api/v1/recommend"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -477,7 +477,7 @@ func RegisterUserHandlerClient(ctx context.Context, mux *runtime.ServeMux, clien
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/.User/GetRecommendedUsers", runtime.WithHTTPPathPattern("/api/v1/users/recommend"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/.User/GetRecommendedUsers", runtime.WithHTTPPathPattern("/api/v1/recommend"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -629,7 +629,7 @@ func RegisterUserHandlerClient(ctx context.Context, mux *runtime.ServeMux, clien
 }
 
 var (
-	pattern_User_GetRecommendedUsers_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3}, []string{"api", "v1", "users", "recommend"}, ""))
+	pattern_User_GetRecommendedUsers_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2}, []string{"api", "v1", "recommend"}, ""))
 
 	pattern_User_Register_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3}, []string{"api", "v1", "users", "register"}, ""))
 

@@ -61,6 +61,7 @@ message LoginRequest {
 
 message LoginResponse {
   string accessToken = 1;
+  string refreshToken= 2;
 }
 
 message VerifyTokenRequest{
@@ -138,7 +139,7 @@ message UploadImageResponse {
 service User {
   rpc GetRecommendedUsers(RecommendUsersRequest) returns (RecommendedUsersResponse){
     option (google.api.http) = {
-      get: "/api/v1/users/recommend"
+      get: "/api/v1/recommend"
     };
   }
 
